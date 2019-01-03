@@ -1,0 +1,61 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+header {
+  background-position: center;
+  background-size: cover;
+  height: 300px;
+}
+
+blockquote{
+  margin: 20px 0;
+  padding-left: 1.3em;
+  border-left: 5px solid #1EA854; /* Just change the color value and that's it*/;
+}
+
+p {
+  text-align: justify;
+}
+
+span {
+  color: #333;
+}
+
+h4 {
+  font-size: 2em;
+}
+
+h5 {
+  font-size: 1.5em;
+}
+
+.tableback {
+  background-color: #eae5e5;
+}
+
+.feat {
+  font-weight: 700;
+}
+
+.auditado {
+  color: #000;
+}
+
+.nauditado {
+  color: #888;
+}
+
+.mytextarea {
+  resize: none;
+  overflow: auto;
+  border: solid 1px #ccc;
+  padding: 0;
+  margin: 0;
+}
