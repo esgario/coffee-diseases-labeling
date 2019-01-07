@@ -95,7 +95,7 @@ $content = $sql_ret_all->fetch_assoc();
       
       <div class="row">
         <div class="col s12 m12 center">
-    			<img id="lesionImage" class="materialboxed responsive-img" style="width: 100%;" src="images/<?php echo $content['id'] ?>.jpg">
+    			<img id="lesionImage" class="materialboxed responsive-img" style="width: 100%;" src="../<?php echo $content['id'] ?>.jpg">
           <br>
         </div>
 
