@@ -104,7 +104,7 @@ $indice_pag_home = floor($img_id / 40);
   <nav>
     <div class="nav-wrapper red darken-4 center">
       <a class="btnback" href="index.php?pag_atual=<?php echo $indice_pag_home?>"><</a>
-      <a href="index.php?pag_atual=<?php echo $indice_pag_home?>"" style="font-size: 30px;">Folhas de café</a>
+      <a href="index.php?pag_atual=<?php echo $indice_pag_home?>" style="font-size: 30px;">Folhas de café</a>
     </div>
   </nav>
       
