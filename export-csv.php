@@ -1,6 +1,6 @@
 <?php
 
-include("conexao.php");
+include("db-connection.php");
 /* vars for export */
 // database record to be exported
 $db_record = 'images';

@@ -3,30 +3,30 @@
 include("db-connection.php");
 
 // Número total de itens por página
-$items_per_page = 20;
+$items_por_pag = 40;
 
 // Pegar a página atual
 
-if (isset($_GET['curr_page']))
+if (isset($_GET['pag_atual']))
 {
-  $curr_page = intval($_GET['curr_page']); // $test = isset($_GET['test']) ? $_GET['test'] : null;
+  $pag_atual = intval($_GET['pag_atual']); // $test = isset($_GET['test']) ? $_GET['test'] : null;
 } else {
-  $curr_page = 0;
+  $pag_atual = 0;
 }
 
-$item = $curr_page * $items_per_page;
+$item = $pag_atual * $items_por_pag;
 
 // Puxar páginas do banco
-$sql_query = "SELECT id, auditado FROM images LIMIT $item, $items_per_page";
+$sql_query = "SELECT id, auditado FROM images LIMIT $item, $items_por_pag";
 $sql_ret_all = $mysqli->query($sql_query) or die($mysqli->error);
-$content = $sql_ret_all->fetch_assoc();
+$conteudo = $sql_ret_all->fetch_assoc();
 $qnt_obj = $sql_ret_all->num_rows;
 
 // Quantidade total de objetos no DB
 $total_obj = $mysqli->query("SELECT id FROM images")->num_rows;
 
 // Definir numero de paginas
-$total_pages = ceil($total_obj/$items_per_page);
+$total_pages = ceil($total_obj/$items_por_pag);
 
 ?>
 
@@ -77,29 +77,29 @@ $total_pages = ceil($total_obj/$items_per_page);
         <div class="collection">
           <?php if($qnt_obj > 0) {
             do { ?>
-            <a href="label-page.php?image_id=<?php echo $content['id']; ?>" class="collection-item"><span>Folha - <?php echo $content['id']; ?></span><?php 
-            $aux = $content['auditado'];
+            <a href="label-page.php?image_id=<?php echo $conteudo['id']; ?>" class="collection-item"><span>Folha - <?php echo $conteudo['id']; ?></span><?php 
+            $aux = $conteudo['auditado'];
             if($aux==0) { ?>
               <span class="right feat nauditado">NÃO AUDITADO</span></a>
             <?php } else { ?>
               <span class="right feat auditado">AUDITADO</span></a>
             <?php }
-            } while($content = $sql_ret_all->fetch_assoc());
+            } while($conteudo = $sql_ret_all->fetch_assoc());
           } ?>          
         </div>
 
         <!-- PAGINAÇÃO -->
           <div class="center">
             <ul class="pagination">
-              <li class="waves-effect"><a class="page-link" href="index.php?curr_page=0"><i class="material-icons">chevron_left</i></a></li>
+              <li class="waves-effect"><a class="page-link" href="index.php?pag_atual=0"><i class="material-icons">chevron_left</i></a></li>
               <?php for($i=0;$i<$total_pages;$i++) {
                 $style = "class=\"waves-effect\"";
-                if($curr_page == $i){
+                if($pag_atual == $i){
                   $style = "class=\"active red darken-4\"";
                 } ?>
-              <li <?php echo $style; ?>><a class="page-link" href="index.php?curr_page=<?php echo $i; ?>"><?php echo $i+1; ?></a></li>
+              <li <?php echo $style; ?>><a class="page-link" href="index.php?pag_atual=<?php echo $i; ?>"><?php echo $i+1; ?></a></li>
               <?php } ?>
-              <li class="waves-effect"><a href="index.php?curr_page=<?php echo $total_pages-1 ?>"><i class="material-icons">chevron_right</i></a></li>
+              <li class="waves-effect"><a href="index.php?pag_atual=<?php echo $total_pages-1 ?>"><i class="material-icons">chevron_right</i></a></li>
             </ul>
           </div>
         </div>
