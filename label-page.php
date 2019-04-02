@@ -203,6 +203,9 @@ $indice_pag_home = floor($img_id / 40);
             <a href="label-page.php?image_id=<?php echo $prox; ?>" class="grey darken-2 waves-effect waves-light btn-small">Próxima</a>
             <a href="label-page.php?image_id=<?php echo $prox_nao_audit; ?>" class="grey darken-2 waves-effect waves-light btn-small">>></a>
           </form>
+
+          <br><br>
+
         </div>
 
       </div>

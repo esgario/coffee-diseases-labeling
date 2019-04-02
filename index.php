@@ -22,7 +22,10 @@ $sql_ret_all = $mysqli->query($sql_query) or die($mysqli->error);
 $conteudo = $sql_ret_all->fetch_assoc();
 $qnt_obj = $sql_ret_all->num_rows;
 
-// Quantidade total de objetos no DB
+// Quantidade de objetos auditados
+$total_obj_auditados = $mysqli->query("SELECT COUNT(*) AS qtd FROM images WHERE auditado = 1")->fetch_assoc();
+
+// Quantidade total de objetos no BD
 $total_obj = $mysqli->query("SELECT id FROM images")->num_rows;
 
 // Definir numero de paginas
@@ -65,7 +68,7 @@ $total_pages = ceil($total_obj/$items_por_pag);
 
       <div class="row" style="margin-bottom: 0;">
         <div class="col s7">
-          <blockquote><h5>Lista de folhas</h5></blockquote>
+          <blockquote><h5>Lista de imagens</h5><span><?php echo "Auditadas: ".$total_obj_auditados['qtd']."/".$total_obj; ?></span></blockquote>
         </div>
 
         <div class="col s5">
