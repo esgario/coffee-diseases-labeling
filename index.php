@@ -25,7 +25,7 @@ $qnt_obj = $sql_ret_all->num_rows;
 // Quantidade de objetos auditados
 $total_obj_auditados = $mysqli->query("SELECT COUNT(*) AS qtd FROM images WHERE auditado = 1")->fetch_assoc();
 
-// Quantidade total de objetos no BD
+// Quantidade total de objetos no DB
 $total_obj = $mysqli->query("SELECT id FROM images")->num_rows;
 
 // Definir numero de paginas
@@ -37,8 +37,8 @@ $total_pages = ceil($total_obj/$items_por_pag);
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Features ABCD</title>
-  <meta name="description" content="Coleta de features ABCD de lesões pigmentadas">
+  <title>Folhas de café</title>
+  <meta name="description" content="Auditoria de doenças de folhas do cafeeiro">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Guilherme Esgario">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -106,6 +106,8 @@ $total_pages = ceil($total_obj/$items_por_pag);
             </ul>
           </div>
         </div>
+
+        <br><br>
 
       </div>
     </div>
